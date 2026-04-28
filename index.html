@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PageRank 中文汇报 PPT</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(135deg, #eef5f3, #f8f1e7);
+      color: #17242a;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 24px;
+    }
+
+    .hero {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(22, 107, 107, 0.18);
+      border-radius: 28px;
+      padding: 48px;
+      box-shadow: 0 24px 70px rgba(23, 36, 42, 0.12);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #166b6b;
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      margin: 24px 0 16px;
+      font-size: clamp(36px, 6vw, 68px);
+      line-height: 1.05;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      font-size: 21px;
+      line-height: 1.7;
+      color: #52636b;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #166b6b;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: #166b6b;
+      border: 1px solid #c8d9d4;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 26px rgba(23, 36, 42, 0.16);
+    }
+
+    .section {
+      margin-top: 34px;
+      background: rgba(255, 255, 255, 0.74);
+      border-radius: 24px;
+      padding: 32px;
+      border: 1px solid rgba(22, 107, 107, 0.14);
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #d7e4e0;
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: #166b6b;
+    }
+
+    .card p {
+      margin: 0;
+      color: #52636b;
+      line-height: 1.6;
+    }
+
+    .preview {
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid #d7e4e0;
+      margin-top: 18px;
+      background: white;
+    }
+
+    footer {
+      margin-top: 36px;
+      text-align: center;
+      color: #52636b;
+      font-size: 14px;
+    }
+
+    code {
+      background: #edf3f1;
+      padding: 3px 6px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <span class="tag">PageRank 中文汇报 PPT</span>
+      <h1>PageRank：让链接投票</h1>
+      <p class="subtitle">
+        本项目是一个用于课程汇报的中文 PowerPoint，主题为
+        “理解图在社会科学与自然科学中的作用：PageRank 算法机制”。
+        内容包括算法背景、核心公式、迭代流程、五节点示例、应用场景与参考文献。
+      </p>
+
+      <div class="buttons">
+        <a class="btn btn-primary" href="./output/output.pptx" download>下载 PPT 成品</a>
+        <a class="btn btn-secondary" href="https://github.com/lheng2386-png/pagerank-cn-ppt" target="_blank">查看 GitHub 仓库</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>项目内容</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>可编辑 PPT</h3>
+          <p><code>output/output.pptx</code> 是最终中文 PPT 成品，可直接下载、编辑和汇报使用。</p>
+        </div>
+        <div class="card">
+          <h3>生成脚本</h3>
+          <p><code>src/deck.mjs</code> 是自动生成 PPT 的源码，方便后续继续修改页面内容。</p>
+        </div>
+        <div class="card">
+          <h3>预览总览图</h3>
+          <p><code>scratch/contact-sheet.png</code> 用来快速查看所有幻灯片整体效果。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>PPT 预览</h2>
+      <p class="subtitle">
+        下面是整套幻灯片的总览预览图。
+      </p>
+      <img class="preview" src="./scratch/contact-sheet.png" alt="PageRank PPT 预览图" />
+    </section>
+
+    <section class="section">
+      <h2>PPT 结构</h2>
+      <div class="grid">
+        <div class="card"><h3>01</h3><p>封面：PageRank 与图思想</p></div>
+        <div class="card"><h3>02</h3><p>搜索引擎为什么需要图</p></div>
+        <div class="card"><h3>03</h3><p>Brin 与 Page 原论文背景</p></div>
+        <div class="card"><h3>04</h3><p>链接投票的直觉</p></div>
+        <div class="card"><h3>05</h3><p>PageRank 核心公式</p></div>
+        <div class="card"><h3>06</h3><p>算法实现流程与迭代示例</p></div>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Ethan Lee · PageRank 中文汇报 PPT
+    </footer>
+  </main>
+</body>
+</html>
